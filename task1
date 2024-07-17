@@ -1,0 +1,67 @@
+// Task 1:
+
+
+// Write a function that does the following task.
+// Given a string s, return true if it is a palindrome, or false otherwise.
+
+
+// The input string is given as a string ‘s’.
+// You must use Recursion to solve the problem.
+
+// Also, mention the Time and Space Complexity of your solution.
+
+
+// Constraints: 
+
+// 1 <= s.length <= 10^5
+
+
+// Example 1:
+// Input: s = "madam"
+// Output: true
+
+
+// Example 2:
+// Input: s = "adam"
+// Output: false
+
+
+// Example 3:
+// Input: s = "tenet"
+// Output: true
+
+
+
+//Solution:
+#include <iostream>
+#include <string>
+using namespace std;
+
+// Check if substring s[start...end] is a palindrome
+bool isPalindromes(const string &s, int start, int end) {
+    if (start >= end) return true;      // Base case: reached the middle
+    if (s[start] != s[end]) return false; // Characters don't match
+    return isPalindromes(s, start + 1, end - 1); // Recur for the next pair
+}
+
+// Check if the entire string s is a palindrome
+bool isPalindrome(const string &s) {
+    return isPalindromes(s, 0, s.length() - 1);
+}
+
+int main() {
+    string s1 = "madam";
+    string s2 = "adam";
+    string s3 = "tenet";
+
+    // Print results
+    cout << (isPalindrome(s1) ? "true" : "false") << endl; // Output: true
+    cout << (isPalindrome(s2) ? "true" : "false") << endl; // Output: false
+    cout << (isPalindrome(s3) ? "true" : "false") << endl; // Output: true
+
+    return 0;
+}
+
+
+//Time Complexity O(n)
+//Space Complexity O(n)
