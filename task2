@@ -1,0 +1,53 @@
+// Task 2:
+
+
+// Write a function that does the following task.
+
+// Write a recursive function to multiply given two positive integers ‘a’ and ‘b’ without using the * operator (multiplication operator). You can only use + operator (addition operator) and - operator (subtraction operator).
+
+// Also, mention the Time and Space Complexity of your solution
+
+// Constraints:
+// 1 <= a, b <= 10^5
+
+
+// Example 1:
+// Input: a = 4, b = 5
+// Output: 20
+
+
+// Example 2:
+// Input: a = 3, b = 3
+// Output: 9
+
+
+// Example 3:
+// Input: a = 0, b = 2
+// Output: 0
+
+//Solution:
+
+#include <iostream>
+using namespace std;
+
+// Recursive function to multiply two integers a and b
+int multiply(int a, int b) {
+    if (b == 0) return 0; // Base case: multiplication by 0
+    return a + multiply(a, b - 1); // Recursive case: add a b times
+}
+
+int main() {
+    int a1 = 4, b1 = 5;
+    int a2 = 3, b2 = 3;
+    int a3 = 0, b3 = 2;
+
+    cout << multiply(a1, b1) << endl; // Output: 20
+    cout << multiply(a2, b2) << endl; // Output: 9
+    cout << multiply(a3, b3) << endl; // Output: 0
+
+    return 0;
+}
+
+
+//Time Complexity O(b)
+//Space Complexity O(b)
